@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <% include header.ejs %>
+    <link href="/stylesheets/bootstrap-switch.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<% for(var i=0;i < myShowCourses.length;i++){
+    if(i%3 == 0){%>
+    <div class="row">
+    <%}%>
+    <div class="col-xs-6 col-md-4" id="<%= myShowCourses[i]._id %>">
+        <div class="panel panel-info">
+            <div class="panel-heading"><strong>课程名称：</strong><span><%= myShowCourses[i].courseName %></span>
+            <div class="pull-right"><strong>剩余</strong><span><%= myShowCourses[i].totalRestCount %></span><strong>人</strong></div></div>
+            <div class="panel-body" style="height: 8em">
+                <strong>课程信息：</strong><span><%= myShowCourses[i].courseDetail %></span>
+            </div>
+            <div class="panel-footer"><strong>教师：</strong><span style="margin-right: 3em"><%= myShowCourses[i].teacherName %></span><strong>课时：</strong><span style="margin-right: 3em"><%= myShowCourses[i].courseTime %></span>
+                <%if(myRegistedCourses.length == 0){%>
+                    <input type="checkbox" name="my-checkbox" data-size="small" data-on-text="已注册" data-off-text="未注册" />
+                <%}
+                for(var j=0;j<myRegistedCourses.length;j++){
+                    if(myRegistedCourses[j]._id == myShowCourses[i]._id){%>
+                        <input type="checkbox" name="my-checkbox" data-size="small" data-on-text="已注册" data-off-text="未注册" checked/>
+                    <%break;}
+                    if(j == myRegistedCourses.length-1&&myRegistedCourses[j]._id != myShowCourses[i]._id){%>
+                        <input type="checkbox" name="my-checkbox" data-size="small" data-on-text="已注册" data-off-text="未注册"  />
+                    <%}
+                }%>
+            </div>
+       </div>
+    </div>
+    <%if((i+1)%3 == 0){%>
+    </div>
+    <%}
+}%>
+
+    <!--cancelRegistCourse model -->
+    <div class="modal fade" id="cancelCourseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="cancelCourseLabel"><strong>取消课程</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" id="cancelCourseForm" action="/courseRegist/cancel" method="post">
+                        <div class="form-group">
+                            <strong>确定要取消该课程吗？</strong>
+                        </div>
+                        </br>
+                        <button type="button" id ="cancelCourseBtnOK" class="btn btn-primary" >确定</button>
+                        <button type="button" id ="cancelCourseBtnCancel" class="btn btn-default" data-dismiss="modal">取消</button>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!--registcourse model -->
+    <div class="modal fade" id="registCourseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="registCourseLabel"><strong>注册课程</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" id="registCourseForm" >
+                        <div class="form-group">
+                            <strong>确定要注册该课程吗？</strong>
+                        </div>
+                        </br>
+                        <button type="button" id ="registCourseBtnOK" class="btn btn-primary" >确定</button>
+                        <button type="button" id ="registCourseBtnCancel" class="btn btn-default" data-dismiss="modal">取消</button>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+</div>
+<script src="/javascripts/courseRegistHandler.js"></script>
+<script src="/javascripts/bootstrap-switch.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title></title>
+    <% include header.ejs %>
+</head>
+<body>
+<div class="container" id="courseContainer">
+    <button type="button" style="margin-top: 5px" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addCourseModal"><span class="glyphicon glyphicon-plus"></span> <strong>添加新的课程</strong></button>
+    <!-- Modal 添加课程的modal-->
+    <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">添加课程</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" id="courseForm">
+                        <div class="form-group">
+                            <label for="courseTitle">课程名称:</label>
+                            <input type="text" class="form-control" id="courseTitle" name="courseTitle" placeholder="Enter course's title">
+                        </div>
+                        <div class="form-group">
+                            <label for="teacher">授课教师:</label>
+                            <input type="text" class="form-control" id="teacher" name="teacher" placeholder="Enter teacher's name">
+                        </div>
+                        <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label for="courseTime">课时:</label>
+                            <input type="number" class="form-control" id="courseTime" name="courseTime" min="1" max="100" placeholder="Enter course time">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="totalCount">人数:</label>
+                            <input type="number" class="form-control" id="totalCount" name="totalCount" min="1" max="100" placeholder="Enter limit students">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="courseContent">课程简介:</label>
+                            <textarea class="form-control" rows="3" name="courseContent" id="courseContent"></textarea>
+                        </div>
+                        </br>
+                        <button type="submit" id ="addCourseBtnOK" class="btn btn-primary">添加</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </form>
+                </div>
+            </div><!-- course/.modal-content -->
+        </div><!-- course/.modal-dialog -->
+    </div><!-- course/.modal -->
+
+    <!-- Modal 修改课程的modal-->
+    <div class="modal fade" id="modifyCourseModal" style="display: none" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModifyLabel">修改课程</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" id="courseFormModify">
+                        <div class="form-group">
+                            <label for="courseTitle">课程名称:</label>
+                            <input type="text" class="form-control" id="courseTitleModify" name="courseTitle" placeholder="Enter course's title">
+                        </div>
+                        <div class="form-group">
+                            <label for="teacher">授课教师:</label>
+                            <input type="text" class="form-control" id="teacherModify" name="teacher" placeholder="Enter teacher's name">
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="courseTime">课时:</label>
+                                <input type="number" class="form-control" id="courseTimeModify" name="courseTime" min="1" max="100" placeholder="Enter course time">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="totalCount">人数:</label>
+                                <input type="number" class="form-control" id="totalCountModify" name="totalCount" min="1" max="100" placeholder="Enter limit students">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="courseContent">课程简介:</label>
+                            <textarea class="form-control" rows="3" name="courseContent" id="courseContentModify"></textarea>
+                        </div>
+                        </br>
+                        <button type="submit" id ="modifyCourseBtnOK" class="btn btn-primary">修改</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </form>
+                </div>
+            </div><!-- courseModify/.modal-content -->
+        </div><!-- courseModify/.modal-dialog -->
+    </div><!-- courseModify/.modal -->
+
+    <div class="modal fade" id="deleteCourseModal" style="display: none">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">删除课程</h4>
+                </div>
+                <div class="modal-body">
+                    <strong>确定要删除该课程吗？</strong></br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id='deleteCourseOK' class="btn btn-primary">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div><!-- delete/.modal-content -->
+        </div><!-- delete/.modal-dialog -->
+    </div><!-- delete/.modal -->
+
+<table class="table table-hover" id="courseTable">
+    <thead>
+        <th>课程名称</th>
+        <th>课程内容</th>
+        <th>教师</th>
+        <th>限选人数</th>
+        <th>课时</th>
+        <th>操作</th>
+    </thead>
+    <tbody id="courseBody">
+    <% allCourses.forEach(function(course){ %>
+    <tr id="<%=course._id %>"><td style="width: 10%">
+            <%=course.courseName %>
+    </td><td style="width: 50%">
+            <%=course.courseDetail %>
+    </td><td style="width: 10%">
+            <%=course.teacherName %>
+    </td><td style="width: 10%">
+            <%=course.totalRestCount %>
+    </td><td style="width: 10%">
+            <%=course.courseTime %>
+    </td><td style="width: 10%">
+            <button type="button" class="btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-edit" style="font-size: 20px"></span>
+            </button>
+            <button type="button" class="btn btn-default btn-xs" >
+                <span class="glyphicon glyphicon-remove-circle" style="font-size: 20px"></span>
+            </button>
+    </td></tr>
+    <%});%>
+    </tbody>
+</table>
+</div>
+<script src="/javascripts/courseManagementHandler.js"></script>
+</body>
+</html>

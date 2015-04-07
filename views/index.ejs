@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+      <% include header.ejs %>
+  </head>
+  <body>
+  <%
+    if(userName && userRole == 0){%>
+        <script src="/javascripts/indexHandler.js"></script>
+    <%}
+    if(userName && userRole == 1){%>
+        <script src="/javascripts/indexHandler2.js"></script>
+    <%}
+  %>
+  <div class="container" id="main">
+  <div class="jumbotron" id="bigCallout">
+      <div class="col-12">
+          <div class="well">
+              <div class="page-header">
+                  <h1><small>欢迎使用</small></h1></br>
+                  <h1><strong>在线选课系统</strong></h1>
+              </div><!-- end page-header -->
+              <p class="lead">该系统基于Node.js的MVC框架express开发，并发性良好，采用前端框架bootstrap进行页面设计，后端使用NoSQL数据库Mongodb进行存储。</p>
+              <a href="http://www.hrbust.edu.cn/" class="btn btn-large btn-link">——>Harbin University of Science and Technology</a>
+          </div><!-- end well -->
+      </div><!-- end col-12 -->
+  </div><!-- end bigCallout -->
+
+  <div class="row" id="featuresHeading">
+      <div class="col-md-12">
+          <h3><strong>课程展示</strong></h3>
+          <h4>该系统可以提供课程，并由学生进行选课，管理员可以添加，删除，修改课程...<h4>
+      </div><!-- end col-12 -->
+  </div><!-- end featuresHeading -->
+
+
+  <div class="row" id="features">
+      <div class="col-sm-4 feature">
+          <div class="panel">
+              <div class="panel-heading">
+                  <h3 class="panel-title">Code with Java</h3>
+              </div><!-- end panel-heading -->
+              <img src="images/java.jpg" alt="Java" class="img-circle">
+              <p>java是一种可以撰写跨平台应用软件的面向对象的程序设计语言，是由Sun公司于1995年5月推出。</p>
+          </div><!-- end panel -->
+      </div><!-- end feature -->
+
+      <div class="col-sm-4 feature">
+          <div class="panel">
+              <div class="panel-heading">
+                  <h3 class="panel-title">SSH Frameworks</h3>
+              </div><!-- end panel-heading -->
+              <img src="images/ssh.jpg" alt="SSH" class="img-circle">
+              <p>SSH 为 struts+spring+hibernate的一个集成框架，是目前较流行的一种Web应用程序开源框架。</p>
+          </div><!-- end panel -->
+      </div><!-- end feature -->
+
+      <div class="col-sm-4 feature">
+          <div class="panel">
+              <div class="panel-heading">
+                  <h3 class="panel-title">Node.js Platform</h3>
+              </div><!-- end panel-heading -->
+              <img src="images/node.jpg" alt="Node" class="img-circle">
+              <p>Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台， 用来方便地搭建快速的， 易于扩展的网络应用。</p>
+          </div><!-- end panel -->
+      </div><!-- end feature -->
+  </div><!-- end features -->
+
+
+  <div class="row" id="moreInfo">
+      <div class="col-sm-6">
+          <h3><strong>学校信息</strong></h3>
+          <h4><span class="glyphicon glyphicon-map-marker"></span> 学校位置 <small>Our location</small></h4>
+          <iframe width="550" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://ditu.google.cn/maps?f=q&amp;source=s_q&amp;hl=zh-CN&amp;geocode=&amp;q=%E5%93%88%E5%B0%94%E6%BB%A8%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6&amp;sll=45.715319,126.614599&amp;sspn=0.008225,0.021136&amp;brcurrent=3,0x5e447da1137c9a9f:0xef0b65d32fc9e730,0,0x5e4364f8a6641461:0x5e7c92735aa02cd5%3B5,0,0&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=45.715319,126.614599&amp;spn=0.006295,0.006295&amp;t=m&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://ditu.google.cn/maps?f=q&amp;source=embed&amp;hl=zh-CN&amp;geocode=&amp;q=%E5%93%88%E5%B0%94%E6%BB%A8%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6&amp;sll=45.715319,126.614599&amp;sspn=0.008225,0.021136&amp;brcurrent=3,0x5e447da1137c9a9f:0xef0b65d32fc9e730,0,0x5e4364f8a6641461:0x5e7c92735aa02cd5%3B5,0,0&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=45.715319,126.614599&amp;spn=0.006295,0.006295&amp;t=m&amp;iwloc=A" style="color:#0000FF;text-align:left">查看大图</a></small>
+          <p>哈尔滨理工大学由原机械工业部所属的哈尔滨科学技术大学、哈尔滨电工学院和哈尔滨工业高等专科学校于1995年合并组建而成，1998年划转黑龙江省属，实行中央与地方共建、以地方为主的管理体制，2008年，在黑龙江省高等教育强省建设规划中被确定为重点建设的十所高水平大学之一。三校均始建于二十世纪五十年代，历经60多年的发展，学校现已成为一所以工为主、理工结合，经、管、哲、文、法、教育、艺术等学科协调发展、具有较强办学实力和特色鲜明的教学研究型大学。</p>
+          <p>学校共有4个办学区，其中在哈尔滨市有东、西、南3个办学区，在山东省荣成市设有哈尔滨理工大学荣成学院。学校总占地面积211万平方米，教学基础设施面积90余万平方米。图书馆藏书237万册，电子图书6000GB以上，中外文期刊15万册，文献数据库30种。现有教职工3017人，其中专任教师1632人，副高职以上人员832人，有中国工程院院士1人。全日制在校生34500余人，留学生100余人。</p>
+      </div><!-- end col-sm-6 -->
+
+      <div class="col-sm-6">
+          <h3><strong>学校文化</strong></h3>
+          <h4>校徽</h4>
+          <img src="images/xiaohui.jpg" class="thumbnail pull-right" alt="Placeholder image">
+          <p> 校徽以中英文校名、学校建校年号为基本构成元素，图案中三个圆形相套，顺时旋转，渐变汇合成一个整体正圆形，象征“三校合一”和“联合、团结、发展”的主题，同时体现了全校师生员工同心同德、自强不息、勇攀高峰的决心。数字“1950”水平横排，且位于三个圆形的起始点，清楚地表征了学校始建于1950年,是学校历史的开始。</p>
+          <p>校徽采用象征性创意手法，把图形、文字与数字巧妙的组合在一起，曲直对比，富于变化。既寓意深刻，又有鲜明的时代感，给人以简洁、美观、明快、易识别的视觉形象。</p>
+          <p>校徽主颜色为科技蓝。</p>
+          <div class="list-group">
+              <a href="#" class="list-group-item">
+                  <h4 class="list-group-item-heading"><strong>校训</strong></h4>
+                  <p class="list-group-item-text">知行统一，博厚悠远。</p>
+              </a>
+              <a href="#" class="list-group-item">
+                  <h4 class="list-group-item-heading"><strong>校风</strong></h4>
+                  <p class="list-group-item-text">团结，奋进，务实，创新。</p>
+              </a>
+              <a href="#" class="list-group-item">
+                  <h4 class="list-group-item-heading"><strong>学风</strong></h4>
+                  <p class="list-group-item-text">勤奋，严谨，求是，自强。</p>
+              </a>
+          </div><!-- list-group -->
+          <h4>办学宗旨</h4>
+          <p>学校坚持内涵建设与外延发展相结合的办学方针，积极开展国际间的学术交流与合作，与欧洲、美洲和亚太地区20余个国家的40所高校、研究机构建立了长期友好合作关系，在教学、科研和人才培养等方面取得了实质性成果。
+              建校60多年来，学校为全国制造业培养了数以万计的优秀人才，很多毕业生都已成为大中型企业和其它领域的技术骨干和领导骨干，被企业(行业)誉为“现代工程师的摇篮”。</p>
+      </div><!-- end col-sm-6 -->
+  </div><!-- end moreInfo -->
+  <hr>
+
+  <footer>
+          <div class="row">
+              <div class="col-sm-2">
+                  <h6>Copyright &copy; 2013 {zhouliang}</h6>
+              </div><!-- end col-sm-2 -->
+
+              <div class="col-sm-4">
+                  <h6>About Me</h6>
+                  <p>when i was here 4 years ago,i thought that i won't like here forever,till now,i fell in love with this place,cause there are so many memories here</p>
+              </div><!-- end col-sm-4 -->
+
+              <div class="col-sm-2">
+                  <h6>Navigation</h6>
+                  <ul class="unstyled">
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">Services</a></li>
+                      <li><a href="#">Links</a></li>
+                      <li><a href="#">Contact</a></li>
+                  </ul>
+              </div><!-- end col-sm-2 -->
+
+              <div class="col-sm-2">
+                  <h6>Follow Me</h6>
+                  <ul class="unstyled">
+                      <li><a href="#">QQ</a></li>
+                      <li><a href="#">Weibo</a></li>
+                      <li><a href="#">Google+</a></li>
+                  </ul>
+              </div><!-- end col-sm-2 -->
+
+              <div class="col-sm-2">
+                  <h6>Coded by zhouliang</h6>
+              </div><!-- end col-sm-2 -->
+          </div><!-- end row -->
+  </footer>
+  </div><!-- end container -->
+  </body>
+</html>

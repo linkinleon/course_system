@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>header</title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<div class="container" id="headerContainer">
+    <div class="nav navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mycollapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><strong>CourseSystem</strong></a>
+        </div>
+        <div class="collapse navbar-collapse" id="mycollapse">
+            <ul class="nav navbar-nav">
+                <li id="homeNav"><a href="index">Home</a></li>
+                <li id="allCourseNav" style="display: none"><a href="courseRegist">所有课程</a></li>
+                <li id="myContentNav" style="display: none"><a href="myContent">我的信息</a></li>
+                <li id="courseManagementNav" style="display: none"><a href="courseManagement">课程管理</a></li>
+                <li id="studentManagementNav" style="display: none"><a href="userManagement">用户管理</a></li>
+            </ul>
+            <div class="btn-group-md navbar-right">
+                <a href="#" id="headerLoginBtn" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#myLoginModal">登录</a>
+                <a href="#" id="headerRegistBtn" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#myRegistModal">注册</a>
+            </div>
+        </div>
+    </div>
+    <!-- regist Modal -->
+    <div class="modal fade" id="myRegistModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel"><strong>用户注册</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" action="/user/regist" method="post">
+                        <div class="form-group">
+                            <label for="username">用户名:</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码:</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">电子邮件:</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                        </div>
+                        </br>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">注册</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        </div>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!--login model -->
+    <div class="modal fade" id="myLoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel"><strong>用户登录</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" id="loginForm">
+                        <div class="form-group">
+                            <label for="username">用户名:</label>
+                            <input type="text" class="form-control" id="loginUsername" name="username" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码:</label>
+                            <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Enter Password">
+                        </div>
+                        </br>
+                        <button type="submit" id ="loginBtn" class="btn btn-primary" >登录</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!--exitlogin model -->
+    <div class="modal fade" id="exitLoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="exitModalLabel"><strong>退出登录</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" id="exitLoginForm" action="/user/exitLogin" method="post">
+                        <div class="form-group">
+                            <strong>确定要退出系统吗？</strong>
+                        </div>
+                        </br>
+                        <button type="submit" id ="exitLoginBtn" class="btn btn-primary" >确定</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+</div>
+<script src="/javascripts/jquery-1.11.0.js"></script>
+<script src="/javascripts/bootstrap.js"></script>
+<script src="/javascripts/headerHandler.js"></script>
+</body>
+</html>

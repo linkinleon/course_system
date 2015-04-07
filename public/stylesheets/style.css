@@ -1,0 +1,73 @@
+a {
+    color: #00B7FF;
+}
+/* --------------------------------------
+   Layout
+   -------------------------------------- */
+
+#features {
+    text-align: center;
+}
+
+#features img {
+    margin: 0 0 20px;
+}
+
+#inputMessage {
+    margin-bottom: 15px;
+}
+
+footer {
+    background: #333;
+    color: #eee;
+    font-size: 11px;
+    padding: 20px;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    padding: 0px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.well .page-header {
+    margin-top: 0;
+}
+
+.well .page-header h1 {
+    margin-top: 0;
+}
+
+ul.unstyled {
+    list-style: none;
+    padding: 0;
+}
+
+.alert {
+    margin-top: 0px;
+    display: none;
+}
+
+.well {
+    margin: 20px 0;
+}
+
+.container .jumbotron {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.panel {
+    border: 1px solid #ddd;
+}
+
+.panel-heading {
+    background-color: #eee;
+}
+
+#features img {
+    margin: 30px 30px 30px 30px;
+}
